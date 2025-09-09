@@ -1,55 +1,55 @@
 # Web Scraping Language Detector 🌍
 
-Bu proje, web scraping kullanarak gerçek zamanlı metin verilerini toplayan ve çok dilli dil tanıma sistemi geliştiren bir makine öğrenmesi uygulamasıdır.
+This project is a machine learning application that collects real-time text data using web scraping and develops a multilingual language detection system.
 
-## 🎯 Proje Özeti
+## 🎯 Project Overview
 
-Bu sistem, 9 farklı dildeki haber sitelerinden metin verilerini otomatik olarak toplar, temizler ve bu verileri kullanarak bir dil tanıma modeli eğitir. Eğitilen model, yeni metinlerin hangi dilde yazıldığını yüksek doğrulukla tespit edebilir.
+This system automatically collects text data from news websites in 9 different languages, cleans it, and uses this data to train a language detection model. The trained model can accurately detect which language new texts are written in.
 
-## 🌐 Desteklenen Diller
+## 🌐 Supported Languages
 
-- 🇹🇷 **Türkçe** (Turkish)
-- 🇺🇸 **İngilizce** (English)
-- 🇩🇪 **Almanca** (German)
-- 🇫🇷 **Fransızca** (French)
-- 🇪🇸 **İspanyolca** (Spanish)
-- 🇷🇺 **Rusça** (Russian)
-- 🇨🇳 **Çince** (Chinese)
-- 🇰🇷 **Korece** (Korean)
-- 🇯🇵 **Japonca** (Japanese)
+- 🇹🇷 **Turkish** (Türkçe)
+- 🇺🇸 **English** (İngilizce)
+- 🇩🇪 **German** (Almanca)
+- 🇫🇷 **French** (Fransızca)
+- 🇪🇸 **Spanish** (İspanyolca)
+- 🇷🇺 **Russian** (Rusça)
+- 🇨🇳 **Chinese** (Çince)
+- 🇰🇷 **Korean** (Korece)
+- 🇯🇵 **Japanese** (Japonca)
 
-## 🚀 Özellikler
+## 🚀 Features
 
 ### Web Scraping
 
-- Gerçek zamanlı haber sitelerinden veri toplama
-- Akıllı HTML parsing ve temizleme
-- Rate limiting ile etik web scraping
-- Hata yönetimi ve güvenilir veri toplama
+- Real-time data collection from news websites
+- Smart HTML parsing and cleaning
+- Ethical web scraping with rate limiting
+- Error handling and reliable data collection
 
-### Veri İşleme
+### Data Processing
 
-- Otomatik metin temizleme ve ön işleme
-- TF-IDF vektörizasyonu ile özellik çıkarımı
-- Karakter n-gram analizi (1-3 gram)
-- Veri kalitesi kontrolü
+- Automatic text cleaning and preprocessing
+- Feature extraction with TF-IDF vectorization
+- Character n-gram analysis (1-3 grams)
+- Data quality control
 
-### Makine Öğrenmesi
+### Machine Learning
 
-- Multinomial Naive Bayes sınıflandırıcı
+- Multinomial Naive Bayes classifier
 - Stratified train-test split
-- Detaylı performans değerlendirmesi
-- Model kaydetme ve yükleme
+- Detailed performance evaluation
+- Model saving and loading
 
-### Etkileşimli Test
+### Interactive Testing
 
-- Gerçek zamanlı dil tanıma testi
-- Güven skoru ile tahmin güvenilirliği
-- Kullanıcı dostu arayüz
+- Real-time language detection testing
+- Prediction reliability with confidence scores
+- User-friendly interface
 
-## 📋 Gereksinimler
+## 📋 Requirements
 
-### Python Kütüphaneleri
+### Python Libraries
 
 ```bash
 pip install pandas numpy matplotlib seaborn
@@ -58,204 +58,204 @@ pip install requests beautifulsoup4
 pip install pickle
 ```
 
-### Sistem Gereksinimleri
+### System Requirements
 
 - Python 3.7+
-- İnternet bağlantısı (web scraping için)
-- En az 4GB RAM (büyük veri setleri için)
+- Internet connection (for web scraping)
+- At least 4GB RAM (for large datasets)
 
-## 🛠️ Kurulum
+## 🛠️ Installation
 
-1. **Projeyi klonlayın:**
+1. **Clone the project:**
 
 ```bash
 git clone <repository-url>
 cd new3
 ```
 
-2. **Gerekli kütüphaneleri yükleyin:**
+2. **Install required libraries:**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Projeyi çalıştırın:**
+3. **Run the project:**
 
 ```bash
 python dl.py
 ```
 
-## 📊 Kullanım
+## 📊 Usage
 
-### Temel Kullanım
+### Basic Usage
 
 ```python
 from dl import WebScrapingLanguageDetector
 
-# Detector oluştur
+# Create detector
 detector = WebScrapingLanguageDetector()
 
-# Veri topla ve modeli eğit
+# Collect data and train model
 data = detector.collect_data_from_web()
 detector.prepare_data()
 x_train, x_test, y_train, y_test = detector.extract_features()
 detector.train_model(x_train, y_train)
 
-# Modeli değerlendir
+# Evaluate model
 accuracy = detector.evaluate_model(x_test, y_test)
 
-# Modeli kaydet
+# Save model
 detector.save_model()
 ```
 
-### Dil Tanıma
+### Language Detection
 
 ```python
-# Tek metin için dil tanıma
+# Language detection for single text
 text = "Hello, how are you today?"
 language, confidence = detector.predict_language(text)
-print(f"Dil: {language}, Güven: {confidence:.2f}")
+print(f"Language: {language}, Confidence: {confidence:.2f}")
 ```
 
-### Etkileşimli Test
+### Interactive Testing
 
 ```python
-# Etkileşimli test modu
+# Interactive test mode
 detector.interactive_test()
 ```
 
-## 🔧 Yapılandırma
+## 🔧 Configuration
 
-### Web Scraping Ayarları
+### Web Scraping Settings
 
 ```python
-# Her dil için maksimum metin sayısı
+# Maximum number of texts per language
 max_texts_per_language = 30
 
-# Her URL için maksimum metin sayısı
+# Maximum number of texts per URL
 max_texts_per_url = 10
 
-# İstekler arası bekleme süresi (saniye)
+# Wait time between requests (seconds)
 time.sleep(random.uniform(2, 4))
 ```
 
-### Model Parametreleri
+### Model Parameters
 
 ```python
-# TF-IDF Vectorizer ayarları
+# TF-IDF Vectorizer settings
 vectorizer = TfidfVectorizer(
-    analyzer='char',           # Karakter bazlı analiz
-    ngram_range=(1,3),         # 1-3 karakter n-gram
-    max_features=2000,         # Maksimum özellik sayısı
-    min_df=2,                  # Minimum doküman frekansı
-    max_df=0.95                # Maksimum doküman frekansı
+    analyzer='char',           # Character-based analysis
+    ngram_range=(1,3),         # 1-3 character n-grams
+    max_features=2000,         # Maximum number of features
+    min_df=2,                  # Minimum document frequency
+    max_df=0.95                # Maximum document frequency
 )
 
-# Naive Bayes ayarları
-model = MultinomialNB(alpha=0.1)  # Smoothing parametresi
+# Naive Bayes settings
+model = MultinomialNB(alpha=0.1)  # Smoothing parameter
 ```
 
-## 📈 Performans
+## 📈 Performance
 
-### Model Performansı
+### Model Performance
 
-- **Doğruluk:** %85-95 (veri kalitesine bağlı)
-- **Eğitim Süresi:** 1-3 dakika
-- **Tahmin Süresi:** <1 saniye
-- **Desteklenen Metin Uzunluğu:** 20-500 karakter
+- **Accuracy:** 85-95% (depending on data quality)
+- **Training Time:** 1-3 minutes
+- **Prediction Time:** <1 second
+- **Supported Text Length:** 20-500 characters
 
-### Web Scraping Performansı
+### Web Scraping Performance
 
-- **Toplam Veri Toplama Süresi:** 5-10 dakika
-- **Ortalama Metin Sayısı:** 200-300 metin
-- **Başarı Oranı:** %90+ (site erişilebilirliğine bağlı)
+- **Total Data Collection Time:** 5-10 minutes
+- **Average Number of Texts:** 200-300 texts
+- **Success Rate:** 90%+ (depending on site accessibility)
 
-## 🗂️ Dosya Yapısı
+## 🗂️ File Structure
 
 ```
 new3/
-├── dl.py                              # Ana uygulama dosyası
-├── web_scraped_language_detector.pkl  # Eğitilmiş model
-├── requirements.txt                   # Python gereksinimleri
-└── README.md                          # Bu dosya
+├── dl.py                              # Main application file
+├── web_scraped_language_detector.pkl  # Trained model
+├── requirements.txt                   # Python requirements
+└── README.md                          # This file
 ```
 
-## 🔍 Teknik Detaylar
+## 🔍 Technical Details
 
-### Veri Toplama Süreci
+### Data Collection Process
 
-1. **URL Listesi:** Her dil için 3 haber sitesi
-2. **HTML Parsing:** BeautifulSoup ile içerik çıkarımı
-3. **Metin Filtreleme:** 20-500 karakter arası metinler
-4. **Temizleme:** Script, style, nav elementlerinin kaldırılması
+1. **URL List:** 3 news websites per language
+2. **HTML Parsing:** Content extraction with BeautifulSoup
+3. **Text Filtering:** Texts between 20-500 characters
+4. **Cleaning:** Removal of script, style, nav elements
 
-### Özellik Çıkarımı
+### Feature Extraction
 
-- **TF-IDF Vektörizasyonu:** Metinleri sayısal vektörlere dönüştürme
-- **Karakter N-gram:** 1-3 karakter kombinasyonları
-- **Özellik Seçimi:** En önemli 2000 özelliğin seçilmesi
+- **TF-IDF Vectorization:** Converting texts to numerical vectors
+- **Character N-grams:** 1-3 character combinations
+- **Feature Selection:** Selection of the most important 2000 features
 
-### Model Eğitimi
+### Model Training
 
-- **Algoritma:** Multinomial Naive Bayes
-- **Cross-validation:** Stratified split ile dengeli dağılım
+- **Algorithm:** Multinomial Naive Bayes
+- **Cross-validation:** Balanced distribution with stratified split
 - **Hyperparameter:** Alpha=0.1 smoothing
 
-## 🚨 Önemli Notlar
+## 🚨 Important Notes
 
-### Etik Kullanım
+### Ethical Usage
 
-- Web sitelerinin robots.txt dosyalarına saygı gösterin
-- Rate limiting kullanarak sunucuları aşırı yüklemeyin
-- Telif hakkı olan içerikleri ticari amaçla kullanmayın
+- Respect websites' robots.txt files
+- Don't overload servers by using rate limiting
+- Don't use copyrighted content for commercial purposes
 
-### Hata Yönetimi
+### Error Handling
 
-- İnternet bağlantısı kesintilerinde otomatik yeniden deneme
-- Erişilemeyen siteler için alternatif URL'ler
-- Veri kalitesi kontrolü ve filtreleme
+- Automatic retry on internet connection interruptions
+- Alternative URLs for inaccessible sites
+- Data quality control and filtering
 
-### Performans Optimizasyonu
+### Performance Optimization
 
-- Büyük veri setleri için batch processing
-- Model caching ile hızlı yeniden yükleme
-- Memory-efficient veri yapıları
+- Batch processing for large datasets
+- Fast reloading with model caching
+- Memory-efficient data structures
 
-## 🔮 Gelecek Geliştirmeler
+## 🔮 Future Enhancements
 
-- [ ] Daha fazla dil desteği
-- [ ] Deep learning modelleri (LSTM, BERT)
-- [ ] Web arayüzü geliştirme
-- [ ] API endpoint'leri
-- [ ] Gerçek zamanlı streaming analizi
-- [ ] Çoklu model ensemble
+- [ ] Support for more languages
+- [ ] Deep learning models (LSTM, BERT)
+- [ ] Web interface development
+- [ ] API endpoints
+- [ ] Real-time streaming analysis
+- [ ] Multi-model ensemble
 
-## 🤝 Katkıda Bulunma
+## 🤝 Contributing
 
-1. Fork yapın
-2. Feature branch oluşturun (`git checkout -b feature/AmazingFeature`)
-3. Commit yapın (`git commit -m 'Add some AmazingFeature'`)
-4. Push yapın (`git push origin feature/AmazingFeature`)
-5. Pull Request açın
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 Lisans
+## 📄 License
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-## 📞 İletişim
+## 📞 Contact
 
-Proje hakkında sorularınız için:
+For questions about the project:
 
 - **Email:** [your-email@example.com]
 - **GitHub:** [your-github-username]
 
-## 🙏 Teşekkürler
+## 🙏 Acknowledgments
 
-- **scikit-learn** - Makine öğrenmesi kütüphanesi
+- **scikit-learn** - Machine learning library
 - **BeautifulSoup** - HTML parsing
-- **requests** - HTTP istekleri
-- **pandas** - Veri manipülasyonu
+- **requests** - HTTP requests
+- **pandas** - Data manipulation
 
 ---
 
-⭐ **Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!**
+⭐ **If you liked this project, don't forget to give it a star!**
